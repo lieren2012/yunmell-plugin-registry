@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.yunmell.cn/schema/plugin.schema.json",
+  "title": "Yunmell Plugin Registry Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "displayName", "official", "yunmell"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "official": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packageName", "version", "source"],
+      "properties": {
+        "packageName": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "format": "uri" },
+        "license": { "type": "string" },
+        "commit": { "type": "string" }
+      }
+    },
+    "yunmell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adapterVersion", "status"],
+      "properties": {
+        "adapterVersion": { "type": "string", "minLength": 1 },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "testing", "published", "deprecated", "blocked"]
+        },
+        "minAgentOsVersion": { "type": "string" },
+        "maxAgentOsVersion": { "type": "string" },
+        "minDesktopVersion": { "type": "string" },
+        "harnessFamily": { "type": "string" }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "sha256"],
+        "properties": {
+          "platform": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "sizeBytes": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "owner": { "type": "string" },
+        "lastReviewedAt": { "type": "string", "format": "date-time" },
+        "reviewIssue": { "type": "string", "format": "uri" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

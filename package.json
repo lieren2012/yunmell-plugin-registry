@@ -1,0 +1,13 @@
+{
+  "name": "@yunmell/plugin-registry",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Yunmell official plugin to adapter version registry",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

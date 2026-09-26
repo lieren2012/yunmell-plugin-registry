@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.yunmell.cn/schema/registry.schema.json",
+  "title": "Yunmell Plugin Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registryVersion", "registryId", "plugins"],
+  "properties": {
+    "registryVersion": { "const": 1 },
+    "registryId": { "const": "yunmell-plugin-registry" },
+    "generatedAt": { "type": "string" },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "entry", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "entry": { "type": "string", "pattern": "^plugins/.+\\.json$" },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "testing", "published", "deprecated", "blocked"]
+          }
+        }
+      }
+    }
+  }
+}
