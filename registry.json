@@ -2,5 +2,11 @@
   "registryVersion": 1,
   "registryId": "yunmell-plugin-registry",
   "generatedAt": "",
-  "plugins": []
+  "plugins": [
+    {
+      "id": "dsh-im",
+      "entry": "plugins/dsh-im.json",
+      "status": "testing"
+    }
+  ]
 }

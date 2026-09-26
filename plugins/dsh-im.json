@@ -1,0 +1,27 @@
+{
+  "id": "dsh-im",
+  "displayName": "DSH-IM",
+  "official": {
+    "packageName": "@xmanrui/dsh-im",
+    "version": "4.25.0",
+    "source": "https://www.npmjs.com/package/@xmanrui/dsh-im",
+    "runtime": [
+      {
+        "packageName": "@deepseek-ai/dsh",
+        "version": "0.1.5-rc.3",
+        "source": "https://www.npmjs.com/package/@deepseek-ai/dsh"
+      }
+    ]
+  },
+  "yunmell": {
+    "adapterVersion": "0.1.0",
+    "status": "testing",
+    "minDesktopVersion": ">=0.3.21",
+    "harnessFamily": "@deepseek-ai/dsh@0.1.5-rc.3"
+  },
+  "artifacts": [],
+  "governance": {
+    "owner": "yunmell-platform",
+    "notes": "官方运行时和 dsh-im 必须作为兼容组合升级；生产发布前复核许可证、依赖和真实 QR 连接流程。"
+  }
+}

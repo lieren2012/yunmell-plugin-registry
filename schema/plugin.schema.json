@@ -23,7 +23,21 @@
         "version": { "type": "string", "minLength": 1 },
         "source": { "type": "string", "format": "uri" },
         "license": { "type": "string" },
-        "commit": { "type": "string" }
+        "commit": { "type": "string" },
+        "runtime": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["packageName", "version", "source"],
+            "properties": {
+              "packageName": { "type": "string", "minLength": 1 },
+              "version": { "type": "string", "minLength": 1 },
+              "source": { "type": "string", "format": "uri" },
+              "license": { "type": "string" }
+            }
+          }
+        }
       }
     },
     "yunmell": {
